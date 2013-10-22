@@ -5,4 +5,4 @@ export GREP_OPTIONS="--color=auto"
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
-export HISTIGNORE="ls:ll:l.:la:lsd:pwd:exit:history:* --help"
+export HISTIGNORE="ls:ll:l.:la:lsd:pwd:exit:clear:history:* --help"
