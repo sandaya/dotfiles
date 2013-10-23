@@ -22,5 +22,5 @@ function parse_git_branch() {
 }
 
 export PS1="\[$BRed\]\u \[$White\]at \[$BYellow\]\h \[$White\]in \[$BGreen\]\w \[$White\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \") \[$BPurple\]\$(parse_git_branch)\n\[$BWhite\]\$ \[$ColorOff\]"
-export PS2="\[$BWhite\]-> \[$ColorOff\]"
+export PS2="\[$BWhite\]- \[$ColorOff\]"
 
