@@ -17,8 +17,12 @@ function parse_git_dirty() {
     [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
 }
 
+function parse_git_unpushed() {
+    [[ -n $(git log --branches --not --remotes 2> /dev/null) ]] && echo "^"
+}
+
 function parse_git_branch() {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)$(parse_git_unpushed)/"
 }
 
 export PS1="\[$BRed\]\u \[$White\]at \[$BYellow\]\h \[$White\]in \[$BGreen\]\w \[$White\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \") \[$BPurple\]\$(parse_git_branch)\n\[$BWhite\]\$ \[$ColorOff\]"
