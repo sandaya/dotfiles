@@ -11,7 +11,7 @@ unset file
 shopt -s nocaseglob
 
 shopt -s histappend
-PROMPT_COMMAND='history -n; history -w; history -c; history -r; $PROMPT_COMMAND'
+PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
 shopt -s histverify
 
