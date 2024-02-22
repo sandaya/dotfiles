@@ -22,7 +22,7 @@ function python_venv() {
 }
 
 function parse_git_dirty() {
-    [ -d ".git" ] && [[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
+    [ -d ".git" ] && [[ $(git status 2> /dev/null | tail -n1) != *"working tree clean"* ]] && echo "*"
 }
 
 function parse_git_unpushed() {
