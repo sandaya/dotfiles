@@ -44,6 +44,6 @@ function user_color {
 }
 
 
-export PS1="$(python_venv)$(user_color)\u \[$White\]at \[$BYellow\]\h \[$White\]in \[$BGreen\]\w \[$White\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \") \[$BPurple\]\$(parse_git_branch)\n\[$BWhite\]\$ \[$ColorOff\]"
+export PS1="$(python_venv)$(user_color)\u \[$White\]at \[$BYellow\]\h \[$White\]in \[$BGreen\]\w \[$White\]\$([ -d \".git\" ] && [[ -n \$(git branch 2> /dev/null) ]] && echo \" on \") \[$BPurple\]\$(parse_git_branch)\n\[$BWhite\]\$ \[$ColorOff\]"
 export PS2="\[$BWhite\]- \[$ColorOff\]"
 
