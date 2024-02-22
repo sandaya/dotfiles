@@ -11,9 +11,7 @@ unset file
 shopt -s nocaseglob
 
 #https://unix.stackexchange.com/questions/18212/bash-history-ignoredups-and-erasedups-setting-conflict-with-common-history
-shopt -s histappend
+shopt -s histappend histverify
 PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
-
-shopt -s histverify
 
 shopt -s checkwinsize
