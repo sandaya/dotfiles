@@ -1,6 +1,3 @@
-# navigation .., --
-alias ..="cd .."
-alias -- -="cd -"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -11,8 +8,10 @@ alias ls='ls ${colorflag}'
 alias ll='ls -lhF'
 alias l.='ll -d .*'
 alias la='ll -A'
-alias lsd='ll -d */'
+alias ldirs='la | grep -E "^d"'
+alias lfiles='la | grep -Ev "^d"'
 
+alias less='less -R'
 alias sudo='sudo -E '
 
 alias cp='cp -i'
