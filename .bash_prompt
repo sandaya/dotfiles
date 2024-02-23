@@ -24,15 +24,15 @@ function python_venv() {
 }
 
 function parse_git_dirty() {
-    [ -d ".git" ] && [[ $(git status 2> /dev/null | tail -n1) != *"working tree clean"* ]] && echo "*"
+    [[ $(git status 2> /dev/null | tail -n1) != *"working tree clean"* ]] && echo "*"
 }
 
 function parse_git_unpushed() {
-    [ -d ".git" ] && [[ -n $(git log --branches --not --remotes 2> /dev/null) ]] && echo "^"
+    [[ -n $(git log --branches --not --remotes 2> /dev/null) ]] && echo "^"
 }
 
 function parse_git_branch() {
-    [ -d ".git" ] && git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)$(parse_git_unpushed)/"
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)$(parse_git_unpushed)/"
 }
 
 function user_color {
@@ -44,6 +44,6 @@ function user_color {
 }
 
 
-export PS1="$(python_venv)$(user_color)\u\[$White\] at \[$BYellow\]\h \[$White\]in \[$BGreen\]\w \[$White\]\$([ -d \".git\" ] && [[ -n \$(git branch 2> /dev/null) ]] && echo \" on \") \[$BPurple\]\$(parse_git_branch)\n\[$BWhite\]\$ \[$ColorOff\]"
+export PS1="$(python_venv)$(user_color)\u\[$White\] at \[$BYellow\]\h \[$White\]in \[$BGreen\]\w \[$White\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \") \[$BPurple\]\$(parse_git_branch)\n\[$BWhite\]\$ \[$ColorOff\]"
 export PS2="\[$BWhite\]- \[$ColorOff\]"
 
