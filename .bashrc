@@ -8,6 +8,8 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done
 unset file
 
+set -o noclobber
+
 shopt -s nocaseglob
 
 #https://unix.stackexchange.com/questions/18212/bash-history-ignoredups-and-erasedups-setting-conflict-with-common-history
@@ -15,3 +17,7 @@ shopt -s histappend histverify
 PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
 shopt -s checkwinsize
+
+if [[ -r /usr/share/bash-completion/bash_completion ]]; then 
+    . /usr/share/bash-completion/bash_completion
+fi

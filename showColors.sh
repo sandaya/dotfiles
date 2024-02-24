@@ -25,3 +25,10 @@ for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' \
 done
 echo
 
+#https://wiki.archlinux.org/title/Bash/Prompt_customizationhttps://wiki.archlinux.org/title/Bash/Prompt_customization
+for C in {0..255}; do
+    tput setab $C
+    echo -n "$C "
+done
+tput sgr0
+echo
