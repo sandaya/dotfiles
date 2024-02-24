@@ -1,4 +1,10 @@
 
+# colors
+alias diff='diff --color=auto'
+alias ip='ip -color=auto'
+alias less='less -R --use-color'
+alias grep='grep --color=auto'
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
     colorflag="--color=always"
@@ -11,12 +17,10 @@ alias la='ll -A'
 alias ldirs='la | grep -E "^d"'
 alias lfiles='la | grep -Ev "^d"'
 
-alias less='less -R'
 alias sudo='sudo -E '
 
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-alias grep='grep --color=auto'
 
