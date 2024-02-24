@@ -47,6 +47,6 @@ function exitstatus() {
     echo "\$?"
 }
 
-export PS1="$(exitstatus) $(python_venv)$(user_color)\u\[$White\] at \[$BYellow\]\h \[$White\]in \[$BGreen\]\w \[$White\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \") \[$BPurple\]\$(parse_git_branch)\n\[$BWhite\]\$ \[$ColorOff\]"
+export PS1="$(exitstatus)> $(python_venv)$(user_color)\u\[$White\] at \[$BYellow\]\h \[$White\]in \[$BGreen\]\w \[$White\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \") \[$BPurple\]\$(parse_git_branch)\n\[$BWhite\]\$ \[$ColorOff\]"
 export PS2="\[$BWhite\]- \[$ColorOff\]"
 
